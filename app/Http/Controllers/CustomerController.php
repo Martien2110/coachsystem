@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Request;
-use App\Message;
+use App\Customer;
 use App\Status;
 
-class MessageController extends Controller
+
+class CustomerController extends Controller
 {
 
         /**
@@ -27,8 +28,9 @@ class MessageController extends Controller
     public function index()
     {
         //
-        $messages = Message::all();
-        return view('back-end.message.index', compact('messages'));
+        $customers = Customer::all();
+        $statuses = Status::where('category', 'customers')->get();
+        return view('back-end.customer.index', compact('customers', 'statuses'));
     }
 
     /**
@@ -39,6 +41,7 @@ class MessageController extends Controller
     public function create()
     {
         //
+        return view('back-end.customer.create');
     }
 
     /**
@@ -51,9 +54,11 @@ class MessageController extends Controller
     {
         //
         $input = Request::all();
-        Message::create($input);
+        $input['birthday'] = date('Y/m/d', strtotime($input['birthday']));
+        Customer::create($input);
+        $cust = Customer::where('birthday', $input['birthday'])->where('lastname', $input['lastname'])->first();
+        return redirect('/customer/'.$cust->id)->with('status', 'Cliënt succesvol toegevoegd');
 
-        return redirect('/veranderjeleven')->with('status', 'Bericht verzonden. Er wordt binnen twee werkdagen contact met u opgenomen.');
     }
 
     /**
@@ -65,9 +70,10 @@ class MessageController extends Controller
     public function show($id)
     {
         //
-        $message = Message::where('id', $id)->first();
-        $statuses = Status::where('category', 'messages')->pluck('description', 'id');
-        return view('back-end.message.show', compact('message', 'statuses'));
+        $customer = Customer::where('id', $id)->first();
+        $status = Status::where('id', $customer->statuses_id)->first();
+        return view('back-end.customer.show', compact('customer', 'status'));
+
     }
 
     /**
@@ -92,12 +98,7 @@ class MessageController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $input = Request::all();
-        $message = Message::where('id', $id)->first();
-        $message->status_id = $input['status_id'];
-        $message->comment = $input['comment'];
-        $message->save();
-        return redirect('/message/'.$id)->with('status', 'Bericht Succesvol aangepast.');
+
     }
 
     /**

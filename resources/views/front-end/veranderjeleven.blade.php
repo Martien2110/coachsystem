@@ -79,7 +79,7 @@
                             </div><!-- /.form-group -->
                             <div class="form-group">
                             <input type="hidden" name="date" value="{{ date('Y-m-d') }}">
-                            <input type="hidden" name="status-id" value="1">
+                            <input type="hidden" name="status_id" value="1">
                             {!! Form::submit('Neem Contact op', array('class' => 'btn pull-right btn-default btn-white', 'id' => 'form-contact-submit')) !!}
                             </div><!-- /.form-group -->
                             <div id="form-status" class="pull-left"></div>

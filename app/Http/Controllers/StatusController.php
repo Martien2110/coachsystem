@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Request;
 use App\Message;
-use App\Status;
+use App\Status
 
-class MessageController extends Controller
+class StatusController extends Controller
 {
 
         /**
@@ -26,9 +26,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
-        $messages = Message::all();
-        return view('back-end.message.index', compact('messages'));
+
     }
 
     /**
@@ -50,10 +48,6 @@ class MessageController extends Controller
     public function store()
     {
         //
-        $input = Request::all();
-        Message::create($input);
-
-        return redirect('/veranderjeleven')->with('status', 'Bericht verzonden. Er wordt binnen twee werkdagen contact met u opgenomen.');
     }
 
     /**
@@ -65,9 +59,6 @@ class MessageController extends Controller
     public function show($id)
     {
         //
-        $message = Message::where('id', $id)->first();
-        $statuses = Status::where('category', 'messages')->pluck('description', 'id');
-        return view('back-end.message.show', compact('message', 'statuses'));
     }
 
     /**
@@ -92,12 +83,6 @@ class MessageController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $input = Request::all();
-        $message = Message::where('id', $id)->first();
-        $message->status_id = $input['status_id'];
-        $message->comment = $input['comment'];
-        $message->save();
-        return redirect('/message/'.$id)->with('status', 'Bericht Succesvol aangepast.');
     }
 
     /**

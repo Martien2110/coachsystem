@@ -11,6 +11,9 @@
 |
 */
 
+/*
+* Front-end
+*/
 Route::get('/', function () {
     return view('front-end.index');
 });
@@ -26,11 +29,15 @@ Route::get('/veranderjeleven', function () {
     return view('front-end.veranderjeleven');
 });
 
-
+/*
+*	Back-end
+*/
 
 Route::auth();
 
 Route::get('/index', 'homeController@index');
+Route::resource('/dashboard','DashboardController');
+
 Route::get('/login', function(){
 	return view('back-end.login');
 });
@@ -40,4 +47,5 @@ Route::get('/blabla', function(){
 });
 
 Route::resource('message', 'MessageController');
+Route::resource('customer', 'CustomerController');
 

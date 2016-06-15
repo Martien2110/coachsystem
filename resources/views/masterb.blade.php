@@ -33,6 +33,20 @@
         <!-- Icons -->
         <!-- ##### -->
         <link rel="shortcut icon" href="{{ asset('back-end/img/favicon.ico') }}" type="image/x-icon">
+
+        
+
+        <!-- ################ -->
+        <!-- Page javascripts -->
+        <!-- ################ -->
+        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/amcharts.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/serial.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/gauge.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/themes/light.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('back-end/bower_components/slimscroll/jquery.slimscroll.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('back-end/js/pages/dashboard.js') }}" type="text/javascript"></script>
+        <script src="http://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js" type="text/javascript"></script>
+        
     </head>
 
     <body>
@@ -55,49 +69,14 @@
 
                         <!-- Desktop -->
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="index.html">Dashboard</a></li>
+                            <li><a href="/dashboard">Dashboard</a></li>
                             <li><a href="/message">Berichten</a></li>
-                            <li >
-                                <a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">
-                                    CSS<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-                                </a>
-                            </li>
-
-                            <li >
-                                <a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">
-                                    Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-                                </a>
-                            </li>
-
-                            <li >
-                                <a class="dropdown-button" href="#!" data-activates="dropdown-javascript" data-constrainwidth="false" data-beloworigin="true">
-                                    Javascript<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-                                </a>
-                            </li>
-
-                            <li >
-                                <a class="dropdown-button" href="#!" data-activates="dropdown-forms" data-constrainwidth="false" data-beloworigin="true">
-                                    Forms<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-                                </a>
-                            </li>
-
-                            <li >
-                                <a class="dropdown-button" href="#!" data-activates="dropdown-tables" data-constrainwidth="false" data-beloworigin="true">
-                                    Tables<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-                                </a>
-                            </li>
-
-                            <li >
-                                <a class="dropdown-button" href="#!" data-activates="dropdown-apps" data-constrainwidth="false" data-beloworigin="true">
-                                    APPs<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-                                </a>
-                            </li>
-
                             <li>
-                                <a class="dropdown-button" href="#!" data-activates="dropdown-pages" data-constrainwidth="false" data-beloworigin="true">
-                                    Pages<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                <a class="dropdown-button" href="#!" data-activates="dropdown-customer"  data-constrainwidth="false" data-beloworigin="true">
+                                    Cliënten<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
+                            
 
                             <li class="profile ">
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">
@@ -111,61 +90,9 @@
                         </ul>
 
                         <!-- Dropdowns -->
-                        <ul id="dropdown-css" class="dropdown-content">
-                            <li ><a href="css_color.html">Color</a></li>
-                            <li ><a href="css_grid.html">Grid</a></li>
-                            <li ><a href="css_helpers.html">Helpers</a></li>
-                            <li ><a href="css_media.html">Media</a></li>
-                            <li ><a href="css_typography.html">Typography</a></li>
-                        </ul>
-                        <ul id="dropdown-components" class="dropdown-content">
-                            <li ><a href="components_badges.html">Badges</a></li>
-                            <li ><a href="components_buttons.html">Buttons</a></li>
-                            <li ><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
-                            <li ><a href="components_cards.html">Cards</a></li>
-                            <li ><a href="components_chips.html">Chips</a></li>
-                            <li ><a href="components_collections.html">Collections</a></li>
-                            <li ><a href="components_footer.html">Footer</a></li>
-                            <li ><a href="components_icons.html">Icons</a></li>
-                            <li ><a href="components_navbar.html">Navbar</a></li>
-                            <li ><a href="components_pagination.html">Pagination</a></li>
-                            <li ><a href="components_preloader.html">Preloader</a></li>
-                        </ul>
-                        <ul id="dropdown-javascript" class="dropdown-content">
-                            <li ><a href="js_collapsible.html">Collapsible</a></li>
-                            <li ><a href="js_dialogs.html">Dialogs</a></li>
-                            <li ><a href="js_dropdown.html">Dropdown</a></li>
-                            <li ><a href="js_media.html">Media</a></li>
-                            <li ><a href="js_modals.html">Modals</a></li>
-                            <li ><a href="js_parallax.html">Parallax</a></li>
-                            <li ><a href="js_pushpin.html">Pushpin</a></li>
-                            <li ><a href="js_scrollfire.html">ScrollFire</a></li>
-                            <li ><a href="js_scrollspy.html">Scrollspy</a></li>
-                            <li ><a href="js_sidenav.html">SideNav</a></li>
-                            <li ><a href="js_tabs.html">Tabs</a></li>
-                            <li ><a href="js_transitions.html">Transitions</a></li>
-                            <li ><a href="js_waves.html">Waves</a></li>
-                        </ul>
-                        <ul id="dropdown-forms" class="dropdown-content">
-                            <li ><a href="forms_general.html">General Elements</a></li>
-                            <li ><a href="forms_advanced.html">Advanced Forms</a></li>
-                        </ul>
-                        <ul id="dropdown-tables" class="dropdown-content">
-                            <li ><a href="tables_basic.html">Basic Tables</a></li>
-                            <li ><a href="tables_datatables.html">Datatables</a></li>
-                        </ul>
-                        <ul id="dropdown-apps" class="dropdown-content">
-                            <li ><a href="apps_crud.html">CRUD</a></li>
-                        </ul>
-                        <ul id="dropdown-pages" class="dropdown-content">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="forgot_password.html">Forgot Password</a></li>
-                            <li class="divider"></li>
-                            <li><a href="error_400.html">Error 400</a></li>
-                            <li><a href="error_403.html">Error 403</a></li>
-                            <li><a href="error_404.html">Error 404</a></li>
-                            <li><a href="error_500.html">Error 500</a></li>
+                        <ul id="dropdown-customer" class="dropdown-content">
+                            <li><a href="/customer">Overzicht Cliënten</a></li>
+                            <li><a href="/customer/create">Voeg Cliënt toe</a></li>
                         </ul>
                         <ul id="dropdown-profile" class="dropdown-content">
                             <li><a href="profile.html">Profile</a></li>
@@ -190,78 +117,16 @@
                             </p>
                         </li>
 
-                        <li>
-                            <a href="index.html" class="waves-effect">Dashboard</a>
-                        </li>
+                        <li><a href="/dashboard" class="waves-effect">Dashboard</a></li>
+                        <li><a href="/message" class="waves-effect">Berichten</a></li>
 
                         <li class="padding-0">
                             <ul class="collapsible collapsible-accordion">
                                 <li class="bold">
-                                    <a class="collapsible-header waves-effect">CSS</a>
+                                    <a class="collapsible-header waves-effect">Cliënten</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="css_color.html">Color</a></li>
-                                            <li><a href="css_grid.html">Grid</a></li>
-                                            <li><a href="css_helpers.html">Helpers</a></li>
-                                            <li><a href="css_media-css.html">Media</a></li>
-                                            <li><a href="css_typography.html">Typography</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="bold">
-                                    <a class="collapsible-header waves-effect">Components</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="components_badges.html">Badges</a></li>
-                                            <li><a href="components_buttons.html">Buttons</a></li>
-                                            <li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
-                                            <li><a href="components_cards.html">Cards</a></li>
-                                            <li><a href="components_chips.html">Chips</a></li>
-                                            <li><a href="components_collections.html">Collections</a></li>
-                                            <li><a href="components_footer.html">Footer</a></li>
-                                            <li><a href="components_forms.html">Forms</a></li>
-                                            <li><a href="components_icons.html">Icons</a></li>
-                                            <li><a href="components_navbar.html">Navbar</a></li>
-                                            <li><a href="components_pagination.html">Pagination</a></li>
-                                            <li><a href="components_preloader.html">Preloader</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="bold">
-                                    <a class="collapsible-header waves-effect">JavaScript</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="js_collapsible.html">Collapsible</a></li>
-                                            <li><a href="js_dialogs.html">Dialogs</a></li>
-                                            <li><a href="js_dropdown.html">Dropdown</a></li>
-                                            <li><a href="js_media.html">Media</a></li>
-                                            <li><a href="js_modals.html">Modals</a></li>
-                                            <li><a href="js_parallax.html">Parallax</a></li>
-                                            <li><a href="js_pushpin.html">Pushpin</a></li>
-                                            <li><a href="js_scrollfire.html">ScrollFire</a></li>
-                                            <li><a href="js_scrollspy.html">Scrollspy</a></li>
-                                            <li><a href="js_sidenav.html">SideNav</a></li>
-                                            <li><a href="js_tabs.html">Tabs</a></li>
-                                            <li><a href="js_transitions.html">Transitions</a></li>
-                                            <li><a href="js_waves.html">Waves</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="bold">
-                                    <a class="collapsible-header waves-effect">Forms</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="forms_general.html">General Elements</a></li>
-                                            <li><a href="forms_advanced.html">Advanced Forms</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="bold">
-                                    <a class="collapsible-header waves-effect">Tables</a>
-                                    <div class="collapsible-body">
-                                        <ul>
-                                            <li><a href="tables_basic.html">Basic Tables</a></li>
-                                            <li><a href="tables_datatables.html">Datatables</a></li>
+                                            <li><a href="/customer">Overzicht Cliënten</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -272,8 +137,7 @@
             </div>
         </nav>
 <main>
-
-            <div class="main-content no-gutter">
+<div class="main-content">
 @yield('content')
 </div>
 </main>
@@ -288,7 +152,6 @@
             </div>
         </footer>
 
-
         <!-- ################## -->
         <!-- Global javascripts -->
         <!-- ################## -->
@@ -301,15 +164,15 @@
         <!-- ################ -->
         <script src="{{ asset('back-end/js/utils.js') }}" type="text/javascript"></script>
         <script src="{{ asset('back-end/js/colors.js') }}" type="text/javascript"></script>
-        <!-- ################ -->
-        <!-- Page javascripts -->
-        <!-- ################ -->
-        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/amcharts.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/serial.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/gauge.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/themes/light.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('back-end/bower_components/slimscroll/jquery.slimscroll.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('back-end/js/pages/dashboard.js') }}" type="text/javascript"></script>
         
+        <script>
+        $('.datepicker').pickadate({
+            dateFormat: 'yy-mm-dd',
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 100, // Creates a dropdown of 15 years to control year
+            dateFormat: 'yy-mm-dd'
+        });
+        </script>
+
     </body>
 </html>

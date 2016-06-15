@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Customer extends Model
 {
     //
 
@@ -15,4 +15,9 @@ class Message extends Model
     {
     	return $this->hasMany('App\Status');
     }
+
+    // public function intake()
+    // {
+    // 	return $this->hasOne('App\Intake');
+    // }
 }

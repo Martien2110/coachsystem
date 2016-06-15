@@ -4,15 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Status extends Model
 {
     //
 
     protected $guarded = ['id'];
     public $timestamps = false;
 
-    public function status()
+    public function message()
     {
-    	return $this->hasMany('App\Status');
+    	return $this->belongsTo('App\Message');
     }
+
 }
