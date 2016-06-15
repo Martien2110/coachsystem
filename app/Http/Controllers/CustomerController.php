@@ -28,7 +28,7 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $customers = Customer::all();
+        $customers = Customer::where('active', 0)->get();
         $statuses = Status::where('category', 'customers')->get();
         return view('back-end.customer.index', compact('customers', 'statuses'));
     }
@@ -85,6 +85,8 @@ class CustomerController extends Controller
     public function edit($id)
     {
         //
+        $customer = Customer::where('id', $id)->first();
+        return view('back-end.customer.edit', compact('customer'));
 
     }
 
@@ -98,7 +100,10 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         //
-
+        $input = Request::all();
+        $customer = Customer::findOrFail($id);
+        $customer->fill($input)->save();
+        return redirect('/customer/'.$customer->id)->with('status', 'Klant is succesvol aangepast.'); 
     }
 
     /**
@@ -110,5 +115,9 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         //
+        $customer = Customer::findOrFail($id);
+        $customer->active = 1;
+        $customer->save();
+        return redirect('/customer')->with('status', 'Cliënt succesvol verwijderd');
     }
 }

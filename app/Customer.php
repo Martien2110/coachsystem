@@ -3,13 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Customer extends Model
 {
     //
-
-    protected $guarded = ['id'];
-    public $timestamps = false;
+    protected $guarded = ['id', 'deleted_at'];
 
     public function status()
     {

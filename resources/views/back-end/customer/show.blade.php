@@ -52,8 +52,14 @@
 							<td class="right-align">Cliënt Status: </td>
 							<td>{{ $status->description }}</td>
 						</tr>
-
 					</table>
+					<div class="btn-group right-align ">
+						{!! Form::open(array('url' => '/customer/'.$customer->id,'method' => 'delete')) !!}
+
+						<a class="btn-flat btn-small waves-effect" href="/customer/{{$customer->id}}/edit"><i class="material-icons">create</i></a>
+						<button type="submit" class="btn-flat btn-small waves-effect btnDelete"><i class="material-icons">delete</i></button>
+						{!! Form::close() !!}
+					</div>
 				</div>
 			</div>
 		</div>
