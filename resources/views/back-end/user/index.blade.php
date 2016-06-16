@@ -30,11 +30,11 @@
 			</thead>
 			<tbody>
 				@foreach($users as $user)
-					@if($user->customer_id == 0)
+					@if($user->customer_id == 0 && $user->assigned == 0)
 					<tr>
 						<td><a href="/user/{{ $user->id }}">{{ $user->name }}</a></td>
 						<td><a href="/user/{{ $user->id }}">{{ $user->email }}</a></td>
-						<td><a href="/user/{{ $user->id }}">{{  $user->created_at }}</a></td>
+						<td><a href="/user/{{ $user->id }}">{{ $user->created_at }}</a></td>
 					</tr>
 					@endif
 				@endforeach
@@ -53,7 +53,7 @@
 			</thead>
 			<tbody>
 				@foreach($users as $user)
-					@if($user->customer_id != 0)
+					@if($user->customer_id > 0 && $user->assigned == 1)
 					<tr>
 						<td><a href="/user/{{ $user->id }}">{{ $user->name }}</a></td>
 						<td><a href="/user/{{ $user->id }}">{{ $user->email }}</a></td>

@@ -66,7 +66,9 @@ class UserController extends Controller
     public function show($id)
     {
         //
-
+        $user = User::where('id', $id)->first();
+        $customers = Customer::where('statuses_id', 9)->get();
+        return view('back-end.user.show', compact('user', 'customers'));
     }
 
     /**
@@ -91,6 +93,17 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $input = Request::all();
+        $user = User::where('id', $id)->first();
+        $user->customer_id = $input['customer_id']; //set user to customer
+        $user->assigned = 1;
+        $user->save();
+
+        $customer = Customer::where('id', $user->customer_id)->first();
+        $customer->statuses_id = $input['status_id'];//set customer status to assigned to user
+        $customer->save();
+
+        return redirect('/user')->with('status', 'Gebruiker succesvol toegewezen aan Cliënt.');
 
     }
 

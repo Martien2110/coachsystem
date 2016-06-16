@@ -27,17 +27,17 @@
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake"><i class="material-icons left">assignment</i>Zet Intake Formulier klaar voor Cliënt</a>
 		</div>
 		<div class="col s12 m4">
-			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process"><i class="material-icons left">assignment</i>Verwerk Intake Formulier van Cliënt</a>
+			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process"><i class="material-icons left">assignment</i>Verwerk Intake Formulier van de Cliënt</a>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col s12 m12">
 		<div class="col s12 m4">
-			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/appointment/process"><i class="material-icons left">assignment</i>Verwerk Afspraak van Cliënt</a>
+			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/appointment/process"><i class="material-icons left">assignment</i>Verwerk Coach sessie van de Cliënt</a>
 		</div>
 		<div class="col s12 m4">
-			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/evaluation/"><i class="material-icons left">send</i>Verstuur Evaluatie naar Cliënt</a>
+			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/evaluation/"><i class="material-icons left">send</i>Verstuur Evaluatie Verzoek naar Cliënt</a>
 		</div>
 		<div class="col s12 m4">
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/invoice"><i class="material-icons left">send</i>Verstuur Factuur naar Cliënt</a>

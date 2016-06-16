@@ -45,7 +45,7 @@
 			</thead>
 			<tbody>
 				@foreach($customers as $customer)
-					@if($customer->statuses_id==8)
+					@if($customer->statuses_id <= 10 && $customer->statuses_id > 8)
 					<tr>
 						<td><a href="/customer/{{ $customer->id }}">{{ $customer->name }} {{ $customer->lm_prefix }} {{ $customer->lastname }}</a></td>
 						<td><a href="/customer/{{ $customer->id }}"> {{ $customer->phonenumber }}  {{ ' - '.$customer->phonenumber2 }},
@@ -73,7 +73,7 @@
 			</thead>
 			<tbody>
 				@foreach($customers as $customer)
-						@if($customer->statuses_id==10)
+						@if($customer->statuses_id==11 || $customer->statuses_id == 12)
 						<tr>
 							<td><a href="/customer/{{ $customer->id }}">{{ $customer->name }} {{ $customer->lm_prefix }} {{ $customer->lastname }}</a></td>
 							<td><a href="/customer/{{ $customer->id }}"> {{ $customer->phonenumber }}  {{ ' - '.$customer->phonenumber2 }},
@@ -103,7 +103,7 @@
 			</thead>
 			<tbody>
 				@foreach($customers as $customer)
-					@if($customer->statuses_id==12)
+					@if($customer->statuses_id==14 || $customer->statuses_id == 15  || $customer->statuses_id == 13)
 					<tr>
 						<td><a href="/customer/{{ $customer->id }}">{{ $customer->name }} {{ $customer->lm_prefix }} {{ $customer->lastname }}</a></td>
 						<td><a href="/customer/{{ $customer->id }}"> {{ $customer->phonenumber }}  {{ ' - '.$customer->phonenumber2 }},
@@ -131,7 +131,7 @@
 			</thead>
 			<tbody>
 				@foreach($customers as $customer)
-						@if($customer->statuses_id==14)
+						@if($customer->statuses_id==16)
 						<tr>
 							<td><a href="/customer/{{ $customer->id }}">{{ $customer->name }} {{ $customer->lm_prefix }} {{ $customer->lastname }}</a></td>
 							<td><a href="/customer/{{ $customer->id }}"> {{ $customer->phonenumber }}  {{ ' - '.$customer->phonenumber2 }},

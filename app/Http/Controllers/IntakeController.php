@@ -28,6 +28,7 @@ class IntakeController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**

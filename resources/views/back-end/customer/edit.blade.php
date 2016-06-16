@@ -75,7 +75,6 @@
 						{!! Form::date('birthday', $customer->birthday, array('placeholder' => 'Geboortedatum: 2016-07-12', 'id' => 'brt', 'required', 'class' => 'datepicker')) !!}
 					</div>
 				</div>
-				<input type="hidden" value="8" name="statuses_id">
 				<div class="panel-footer">
 					<div class="right-align">
 						<button type="reset" class="btn-flat waves-effect">
