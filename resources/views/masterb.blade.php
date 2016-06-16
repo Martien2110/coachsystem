@@ -95,6 +95,7 @@
                         </ul>
 
                         <!-- Dropdowns -->
+                        @if(Auth::user()->role < 2)
                         <ul id="dropdown-dashboard" class="dropdown-content">
                             <li><a href="/dashboard/message">Berichten</a></li>
                             <li><a href="/dashboard/customer">Cliënten</a></li>
@@ -113,6 +114,7 @@
                         <ul id="dropdown-profile" class="dropdown-content">
                             <li><a href="/logout">Logout</a></li>
                         </ul>
+                        @endif
 
                         <!-- Mobile -->
                         <a href="#" data-activates="mobile-demo" class="button-collapse">
@@ -131,7 +133,7 @@
                                 <b class="main-text">LC</b> Admin
                             </p>
                         </li>
-
+                        @if(Auth::user()->role < 2)
                         <li class="padding-0">
                             <ul class="collapsible collapsible-accordion">
                                 <li class="bold">
@@ -176,6 +178,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>
