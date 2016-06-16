@@ -1,12 +1,52 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
+        <title>Registratie | BVLC Admin</title>
+        <meta name="author" content="Martien Brouwer">
+        
+        <!-- ##### -->
+        <!-- Fonts -->
+        <!-- ##### -->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <!-- ################## -->
+        <!-- Global stylesheets -->
+        <!-- ################## -->
+        <link href="{{ asset('back-end/bower_components/Materialize/dist/css/materialize.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back-end/bower_components/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back-end/css/login.css') }}" rel="stylesheet" type="text/css" />
+        <!-- ################# -->
+        <!-- Theme stylesheets -->
+        <!-- ################# -->
+        <link href="{{ asset('back-end/css/themes/light.css') }}" id="ssThemeColor" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back-end/css/themes/main/materialize-red.css') }}" id="ssMainColor" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back-end/css/themes/alternative/red.css') }}" id="ssAlternativeColor" rel="stylesheet" type="text/css" />
+        <!-- ################ -->
+        <!-- Util stylesheets -->
+        <!-- ################ -->
+        <link href="{{ asset('back-end/css/theme-switcher.css') }}" rel="stylesheet" type="text/css" />
+        <!-- ##### -->
+        <!-- Icons -->
+        <!-- ##### -->
+        <link rel="shortcut icon" href="{{ asset('back-end/img/favicon.ico') }}" type="image/x-icon">
+    </head>
+
+
+    <body>
+        <div id="theme-gradient"></div>
+        
+        <!-- ####### -->
+        <!-- Content -->
+        <!-- ####### -->
+        <main>
+            <div class="login-wrapper">
+           <div class="panel panel-bordered z-depth-1">
+                        <div class="panel-header">
+                            <h5>Registreer hier voor <b class="main-text">LC-Admin</b></h5>
+                        </div>
+                        <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -66,17 +106,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
+                   <div class="panel-footer">
+                            <div class="right-align">
+                                <button type="submit" class="btn-flat btn-small waves-effect">
+                                    Registreer
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+  </div>
+        </main>
+
+
+        <!-- ################## -->
+        <!-- Global javascripts -->
+        <!-- ################## -->
+        <script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+        <script src="bower_components/Materialize/dist/js/materialize.js" type="text/javascript"></script>
+        <!-- ################ -->
+        <!-- Util javascripts -->
+        <!-- ################ -->
+        <script src="js/utils.js" type="text/javascript"></script>
+        <script src="js/colors.js" type="text/javascript"></script>
+        <script src="js/theme-switcher.js" type="text/javascript"></script>
+        
+    </body>
+</html>
