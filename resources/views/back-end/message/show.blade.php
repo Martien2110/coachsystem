@@ -16,8 +16,8 @@
     </div>
 </div>
 <div class="row">
-	<div class="col s12">
-		<div class="col s6">
+	<div class="col s12 m12">
+		<div class="col s12 m6">
 			<div class="panel panel-bordered">
 				<div class="panel-header">
 					<div class="title">Ontvangen Bericht</div>
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col s6">
+		<div class="col s12 m6">
 			<div class="panel panel-bordered">
 				<div class="panel-header">
 					<div class="title">Opmerkingen</div>

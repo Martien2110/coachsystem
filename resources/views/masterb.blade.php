@@ -69,19 +69,24 @@
 
                         <!-- Desktop -->
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li>
+                                <a class="dropdown-button" href="#!" data-activates="dropdown-dashboard"  data-constrainwidth="false" data-beloworigin="true">Dashboard<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                </a>
+                            </li>
                             <li><a href="/message">Berichten</a></li>
                             <li>
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-customer"  data-constrainwidth="false" data-beloworigin="true">
                                     Cliënten<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
-                            
-
+                            <li>
+                                <a class="dropdown-button" href="#!" data-activates="dropdown-intake"  data-constrainwidth="false" data-beloworigin="true">
+                                    Intake<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                </a>
+                            </li>
                             <li class="profile ">
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">
                                     <div class="valign-wrapper">
-                                        <img src="{{ asset('back-end/img/profile.jpg') }}" alt="My profile" class="circle responsive-img margin-right-10">
                                         {{ Auth::user()->name}}
                                         <i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                     </div>
@@ -90,12 +95,22 @@
                         </ul>
 
                         <!-- Dropdowns -->
+                        <ul id="dropdown-dashboard" class="dropdown-content">
+                            <li><a href="/dashboard/message">Berichten</a></li>
+                            <li><a href="/dashboard/customer">Cliënten</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/dashboard/intake">Feedback - Intake</a></li>
+                            <li><a href="/dashboard/appointment">Feedback - Sessies</a></li>
+                        </ul>
                         <ul id="dropdown-customer" class="dropdown-content">
                             <li><a href="/customer">Overzicht Cliënten</a></li>
                             <li><a href="/customer/create">Voeg Cliënt toe</a></li>
                         </ul>
+                        <ul id="dropdown-intake" class="dropdown-content">
+                            <li><a href="/customer">Intake Formulier Toevoegen</a></li>
+                            <li><a href="/customer/create">Overzicht Formulieren</a></li>
+                        </ul>
                         <ul id="dropdown-profile" class="dropdown-content">
-                            <li><a href="profile.html">Profile</a></li>
                             <li><a href="/logout">Logout</a></li>
                         </ul>
 
@@ -117,7 +132,22 @@
                             </p>
                         </li>
 
-                        <li><a href="/dashboard" class="waves-effect">Dashboard</a></li>
+                        <li class="padding-0">
+                            <ul class="collapsible collapsible-accordion">
+                                <li class="bold">
+                                    <a class="collapsible-header waves-effect">Dashboard</a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li><a href="/dashboard/message">Berichten</a></li>
+                                            <li><a href="/dashboard/customer">Cliënten</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="/dashboard/intake">Feedback - Intake</a></li>
+                                            <li><a href="/dashboard/appointment">Feedback - Sessies</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
                         <li><a href="/message" class="waves-effect">Berichten</a></li>
 
                         <li class="padding-0">
@@ -127,6 +157,20 @@
                                     <div class="collapsible-body">
                                         <ul>
                                             <li><a href="/customer">Overzicht Cliënten</a></li>
+                                            <li><a href="/customer/create">Voeg Cliënt Toe</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="padding-0">
+                            <ul class="collapsible collapsible-accordion">
+                                <li class="bold">
+                                    <a class="collapsible-header waves-effect">Intake</a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <li><a href="/customer">Overzicht Intake</a></li>
+                                            <li><a href="/customer/create">Voeg Intake Toe</a></li>
                                         </ul>
                                     </div>
                                 </li>

@@ -15,8 +15,8 @@ class Customer extends Model
     	return $this->hasMany('App\Status');
     }
 
-    // public function intake()
-    // {
-    // 	return $this->hasOne('App\Intake');
-    // }
+    public function intake()
+    {
+    	return $this->hasOne('App\Intake');
+    }
 }

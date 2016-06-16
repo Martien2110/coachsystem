@@ -36,11 +36,14 @@ Route::get('/veranderjeleven', function () {
 Route::auth();
 
 Route::get('/index', 'homeController@index');
-Route::resource('/dashboard','DashboardController');
+Route::get('/dashboard/message','DashboardController@messages');
+// Route::get('/dash','');
 
 Route::get('/login', function(){
 	return view('back-end.login');
 });
+Route::get('/customer/{id}/register', 'CustomerController@register');
+Route::post('/customer/{id}/register', 'CustomerController@storecustuser');
 
 Route::get('/blabla', function(){
 	return view('auth.login');

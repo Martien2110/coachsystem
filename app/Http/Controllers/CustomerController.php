@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Request;
 use App\Customer;
 use App\Status;
+use App\User;
 
 
 class CustomerController extends Controller
@@ -119,5 +120,19 @@ class CustomerController extends Controller
         $customer->active = 1;
         $customer->save();
         return redirect('/customer')->with('status', 'Cliënt succesvol verwijderd');
+    }
+
+    public function register($id)
+    {
+        $customer = Customer::findOrFail($id);
+        return view('back-end.register', compact('customer'));
+    }
+
+    public function storecustuser(Request $request, $id)
+    {
+        $input = Request::all();
+        User::create($input);
+        return redirect('/customer/'.$input['customer_id'])->with('status', 'Account voor Cliënt aangemaakt.');
+
     }
 }

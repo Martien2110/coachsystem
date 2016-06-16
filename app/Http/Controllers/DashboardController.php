@@ -25,7 +25,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function messages()
     {
         // First block contains messages per day, and totals this month and this day
         $messagesthismonth = DB::table('messages')
