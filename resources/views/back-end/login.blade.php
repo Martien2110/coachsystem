@@ -93,13 +93,17 @@
 						</div>
 						<div class="panel-footer">
 							<div class="right-align">
-								<a href="{{ url('/password/reset') }}" class="btn-flat waves-effect">
-									FORGOT PASSWORD
-								</a>
 
-								<button type="submit" class="btn-flat waves-effect">
-									LOG IN
-								</button>
+                                <button type="submit" class="btn-flat waves-effect">
+                                    LOG IN
+                                </button>
+                               
+								<a href="{{ url('/password/reset') }}" class="btn-flat waves-effect">
+									Wachtwoord vergeten
+								</a>
+                                 <a href="{{ url('/register') }}" class="btn-flat waves-effect">
+                                    Registreer
+                                </a>
 							</div>
 						</div>
 					</div>

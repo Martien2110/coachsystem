@@ -42,24 +42,68 @@
         <!-- ####### -->
         <main>
             <div class="login-wrapper">
-                <!-- <form method="POST" action="{{ url('/customer/$customer->id/register') }}"> -->
-                {!! Form::open(array('url' => '/customer/.$customer->id./register', 'method' => 'post')) !!}
-                {{ csrf_field() }}
+               
     				<div class="panel panel-bordered z-depth-1">
     					<div class="panel-header">
     						<h5>Registreer hier uw Cliënt voor <b class="main-text">LC-Admin</b></h5>
                             <div class="subtitle">Het wachtwoord is op te vragen in het profiel</div>
     					</div>
     					<div class="panel-body">
-                            <div class="input-field">
-                                <input type="text" name="name" id="name" required value="{{$customer->name}}" placeholder="Naam">
-							</div>
-							<div class="input-field">
-                                <input id="email" type="email" name="email" placeholder="Email" value="{{$customer->email}}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                {{ csrf_field() }}
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Naam</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-							<div class="input-field">
-								<input type="password" name="password" id="password" required placeholder="password">
-							</div>
+
+							<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                        </div>
+							 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password">
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                             </div>
+                              <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                             <input type="hidden" id="role" name="role" value="2">
                             <input type="hidden" id="customer_id" name="customer_id" value="{{$customer->id}}">
     					</div>
@@ -69,8 +113,7 @@
 							</div>
     					</div>
     				</div>
-                    {!! Form::close() !!}
-                <!-- </form> -->
+                </form>
             </div>
         </main>
 

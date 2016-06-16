@@ -6,6 +6,7 @@ use Request;
 use App\Customer;
 use App\Status;
 use App\User;
+use Auth;
 
 
 class CustomerController extends Controller
@@ -130,7 +131,8 @@ class CustomerController extends Controller
     public function register($id)
     {
         $customer = Customer::findOrFail($id);
-        return view('back-end.register', compact('customer'));
+        Auth::logout();
+        return redirect('/register', compact('customer'));
     }
 
     public function storecustuser(Request $request, $id)
@@ -143,7 +145,7 @@ class CustomerController extends Controller
     public function deleteuser($id)
     {
         $customer = Customer::findOrFail($id);
-        $user = User::where('customer_id', $customer->id);
+        $user = Auth::where('customer_id', $customer->id);
         $user->delete();
         return redirect('/customer/'.$customer->id)->with('status', 'Account van Cliënt verwijderd');
     }

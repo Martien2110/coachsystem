@@ -73,6 +73,7 @@
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-dashboard"  data-constrainwidth="false" data-beloworigin="true">Dashboard<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
+                        @if(Auth::user()->role < 2)
                             <li><a href="/message">Berichten</a></li>
                             <li>
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-customer"  data-constrainwidth="false" data-beloworigin="true">
@@ -84,6 +85,7 @@
                                     Intake<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
+                            @endif
                             <li class="profile ">
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">
                                     <div class="valign-wrapper">
@@ -111,10 +113,10 @@
                             <li><a href="/customer">Intake Formulier Toevoegen</a></li>
                             <li><a href="/customer/create">Overzicht Formulieren</a></li>
                         </ul>
+                        @endif
                         <ul id="dropdown-profile" class="dropdown-content">
                             <li><a href="/logout">Logout</a></li>
                         </ul>
-                        @endif
 
                         <!-- Mobile -->
                         <a href="#" data-activates="mobile-demo" class="button-collapse">
@@ -133,7 +135,6 @@
                                 <b class="main-text">LC</b> Admin
                             </p>
                         </li>
-                        @if(Auth::user()->role < 2)
                         <li class="padding-0">
                             <ul class="collapsible collapsible-accordion">
                                 <li class="bold">
@@ -150,6 +151,7 @@
                                 </li>
                             </ul>
                         </li>
+                        @if(Auth::user()->role < 2)
                         <li><a href="/message" class="waves-effect">Berichten</a></li>
 
                         <li class="padding-0">

@@ -33,15 +33,10 @@ Route::get('/veranderjeleven', function () {
 *	Back-end
 */
 
-Route::auth();
-
-Route::get('/index', 'homeController@index');
 Route::get('/dashboard/message','DashboardController@messages');
 // Route::get('/dash','');
 
-Route::get('/login', function(){
-	return view('back-end.login');
-});
+
 Route::get('/customer/{id}/register', 'CustomerController@register');
 Route::get('/customer/{id}/deleteuser', 'CustomerController@deleteuser');
 Route::post('/customer/{id}/register', 'CustomerController@storecustuser');
@@ -49,7 +44,21 @@ Route::post('/customer/{id}/register', 'CustomerController@storecustuser');
 Route::get('/blabla', function(){
 	return view('auth.login');
 });
+Route::get('/bladie', function(){
+	return view('auth.register');
+});
 
 Route::resource('message', 'MessageController');
 Route::resource('customer', 'CustomerController');
 
+Route::get('/login', function(){
+	return view('back-end.login');
+});
+
+Route::auth();
+
+Route::get('/index', 'HomeController@index');
+
+Route::get('/login', function(){
+	return view('back-end.login');
+});
