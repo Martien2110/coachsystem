@@ -18,26 +18,30 @@
 </div>
 <div class="row">
 	<div class="col s12 m12">
-		<div class="col s4 m4">
+		<div class="col s12 m4">
+			@if(is_object($user))
+			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/deleteuser"><i class="material-icons left">send</i>Verwijder Cliënt account</a>
+			@else
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/register"><i class="material-icons left">send</i>Creëer Inlog gegevens voor cliënt</a>
+			@endif
 		</div>
-		<div class="col s4 m4">
+		<div class="col s12 m4">
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake"><i class="material-icons left">assignment</i>Zet Intake Formulier klaar voor Cliënt</a>
 		</div>
-		<div class="col s4 m4">
+		<div class="col s12 m4">
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process"><i class="material-icons left">assignment</i>Verwerk Intake Formulier van Cliënt</a>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col s12 m12">
-		<div class="col s4 m4">
+		<div class="col s12 m4">
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/appointment/process"><i class="material-icons left">assignment</i>Verwerk Afspraak van Cliënt</a>
 		</div>
-		<div class="col s4 m4">
+		<div class="col s12 m4">
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/evaluation/"><i class="material-icons left">send</i>Verstuur Evaluatie naar Cliënt</a>
 		</div>
-		<div class="col s4 m4">
+		<div class="col s12 m4">
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/invoice"><i class="material-icons left">send</i>Verstuur Factuur naar Cliënt</a>
 		</div>
 	</div>
@@ -68,6 +72,10 @@
 						<tr>
 							<td class="right-align">Cliënt Status: </td>
 							<td>{{ $status->description }}</td>
+						</tr>
+						<tr>
+							<td class="right-align">Cliënt Account: </td>
+							<td> @if(is_object($user)) Inlog: {{$user->email}} <br> Wachtwoord: {{$user->password}} @else {{$user}} @endif </td>
 						</tr>
 					</table>
 					<div class="btn-group right-align ">

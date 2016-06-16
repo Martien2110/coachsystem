@@ -43,6 +43,7 @@ Route::get('/login', function(){
 	return view('back-end.login');
 });
 Route::get('/customer/{id}/register', 'CustomerController@register');
+Route::get('/customer/{id}/deleteuser', 'CustomerController@deleteuser');
 Route::post('/customer/{id}/register', 'CustomerController@storecustuser');
 
 Route::get('/blabla', function(){

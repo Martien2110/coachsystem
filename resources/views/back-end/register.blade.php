@@ -48,7 +48,7 @@
     				<div class="panel panel-bordered z-depth-1">
     					<div class="panel-header">
     						<h5>Registreer hier uw Cliënt voor <b class="main-text">LC-Admin</b></h5>
-                            <div class="subtitle">Vergeet het wachtwoord niet ergens te noteren.</div>
+                            <div class="subtitle">Het wachtwoord is op te vragen in het profiel</div>
     					</div>
     					<div class="panel-body">
                             <div class="input-field">
