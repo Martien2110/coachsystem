@@ -44,7 +44,7 @@
             <div class="login-wrapper">
            <div class="panel panel-bordered z-depth-1">
                         <div class="panel-header">
-                            <h5>Registreer hier voor <b class="main-text">LC-Admin</b></h5>
+                            <h5><b class="main-text">LC-Admin</b> <br> Registreer</h5>
                         </div>
                         <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">

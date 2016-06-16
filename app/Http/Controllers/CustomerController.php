@@ -77,7 +77,7 @@ class CustomerController extends Controller
         $user = User::where('customer_id', $customer->id)->first();
         if($user == null)
         {
-            $user = 'Cliënt heeft nog geen account';
+            $user = '';
         }
         return view('back-end.customer.show', compact('customer', 'status', 'user'));
 
@@ -126,20 +126,6 @@ class CustomerController extends Controller
         $customer->active = 1;
         $customer->save();
         return redirect('/customer')->with('status', 'Cliënt succesvol verwijderd');
-    }
-
-    public function register($id)
-    {
-        $customer = Customer::findOrFail($id);
-        Auth::logout();
-        return redirect('/register', compact('customer'));
-    }
-
-    public function storecustuser(Request $request, $id)
-    {
-        $input = Request::all();
-        User::create($input);
-        return redirect('/customer/'.$input['customer_id'])->with('status', 'Account voor Cliënt aangemaakt.');
     }
 
     public function deleteuser($id)

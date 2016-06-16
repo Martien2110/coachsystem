@@ -75,6 +75,7 @@
                             </li>
                         @if(Auth::user()->role < 2)
                             <li><a href="/message">Berichten</a></li>
+                            <li><a href="/user">Gebruikers</a></li>
                             <li>
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-customer"  data-constrainwidth="false" data-beloworigin="true">
                                     Cliënten<i class="material-icons dropdown-icon right">arrow_drop_down</i>

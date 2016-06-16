@@ -12,8 +12,11 @@
 */
 
 /*
+*
 * Front-end
+*
 */
+
 Route::get('/', function () {
     return view('front-end.index');
 });
@@ -30,23 +33,16 @@ Route::get('/veranderjeleven', function () {
 });
 
 /*
+*
 *	Back-end
+*
 */
 
 Route::get('/dashboard/message','DashboardController@messages');
 // Route::get('/dash','');
 
-
-Route::get('/customer/{id}/register', 'CustomerController@register');
 Route::get('/customer/{id}/deleteuser', 'CustomerController@deleteuser');
-Route::post('/customer/{id}/register', 'CustomerController@storecustuser');
-
-Route::get('/blabla', function(){
-	return view('auth.login');
-});
-Route::get('/bladie', function(){
-	return view('auth.register');
-});
+Route::resource('user', 'UserController');
 
 Route::resource('message', 'MessageController');
 Route::resource('customer', 'CustomerController');

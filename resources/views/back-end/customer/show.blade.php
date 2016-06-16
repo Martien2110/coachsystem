@@ -21,8 +21,6 @@
 		<div class="col s12 m4">
 			@if(is_object($user))
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/deleteuser"><i class="material-icons left">send</i>Verwijder Cliënt account</a>
-			@else
-			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/register"><i class="material-icons left">send</i>Creëer Inlog gegevens voor cliënt</a>
 			@endif
 		</div>
 		<div class="col s12 m4">
@@ -75,7 +73,7 @@
 						</tr>
 						<tr>
 							<td class="right-align">Cliënt Account: </td>
-							<td> @if(is_object($user)) Inlog: {{$user->email}} <br> Wachtwoord: {{$user->password}} @else {{$user}} @endif </td>
+							<td> @if(is_object($user)) Cliënt heeft reeds een account. @else Cliënt heeft geen account @endif </td>
 						</tr>
 					</table>
 					<div class="btn-group right-align ">
