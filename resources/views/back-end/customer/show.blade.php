@@ -54,7 +54,7 @@
 					<div class="subtitle">Hieronder een overzicht van de gegevens van de Cliënt</div>
 				</div>
 				<div class="panel-body">
-					<table class="striped">
+					<table class="datatable bordered">
 						<tr>
 							<td class="right-align">Naam: </td>
 							<td>{{ $customer->name }} {{ $customer->lm_prefix }} {{$customer->lastname}}</td>

@@ -111,8 +111,8 @@
                             <li><a href="/customer/create">Voeg Cliënt toe</a></li>
                         </ul>
                         <ul id="dropdown-intake" class="dropdown-content">
-                            <li><a href="/customer">Intake Formulier Toevoegen</a></li>
-                            <li><a href="/customer/create">Overzicht Formulieren</a></li>
+                            <li><a href="/intake">Intake Vragen Overzicht</a></li>
+                            <li><a href="/intake/create">Vragen aanmaken</a></li>
                         </ul>
                         @endif
                         <ul id="dropdown-profile" class="dropdown-content">
@@ -174,8 +174,8 @@
                                     <a class="collapsible-header waves-effect">Intake</a>
                                     <div class="collapsible-body">
                                         <ul>
-                                            <li><a href="/customer">Overzicht Intake</a></li>
-                                            <li><a href="/customer/create">Voeg Intake Toe</a></li>
+                                            <li><a href="/intake">Intake Vragen Overzicht</a></li>
+                                            <li><a href="/intake/create">Vragen aanmaken</a></li>
                                         </ul>
                                     </div>
                                 </li>

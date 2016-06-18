@@ -7,9 +7,8 @@ use App\Message;
 use App\Status;
 use App\Customer;
 use App\Question;
-use App\Questions_specification;
 
-class IntakeController extends Controller
+class QuestionController extends Controller
 {
 
         /**
@@ -30,8 +29,6 @@ class IntakeController extends Controller
     public function index()
     {
         //
-        $questions = Question::where('specification', 'Intake')->get();
-        return view('back-end.intake.index', compact('questions'));
     }
 
     /**
@@ -42,8 +39,6 @@ class IntakeController extends Controller
     public function create()
     {
         //
-        $specs = Questions_specification::all();
-        return view('back-end.intake.create', compact('specs'));
     }
 
     /**
@@ -55,6 +50,10 @@ class IntakeController extends Controller
     public function store()
     {
         //
+        $input = Request::all();
+        Question::create($input);
+        return redirect('/intake')->with('status', 'Vraag succesvol toegevoegd.');
+    
     }
 
     /**
