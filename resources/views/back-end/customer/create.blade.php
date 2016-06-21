@@ -28,7 +28,7 @@
 						{!! Form::text('name', null, array('id' => 'first_name', 'class' => 'validate', 'required')) !!}
 					</div>
 					<div class="input-field col s4 m2">
-						{!! Form::label('lnp', 'Tusenvoegsel', array('for' => 'lm_prefix')) !!}
+						{!! Form::label('lnp', 'Tussenvoegsel', array('for' => 'lm_prefix')) !!}
 						{!! Form::text('lm_prefix', null, array('id' => 'lm_prefix', 'class' => 'validate')) !!}
 					</div>
 					<div class="input-field col s12 m6">
