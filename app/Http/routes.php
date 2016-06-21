@@ -48,6 +48,7 @@ Route::resource('message', 'MessageController');
 Route::resource('customer', 'CustomerController');
 Route::resource('question', 'QuestionController');
 Route::resource('intake', 'IntakeController');
+Route::resource('questions_specification', 'Questions_specificationController');
 
 Route::get('/login', function(){
 	return view('back-end.login');

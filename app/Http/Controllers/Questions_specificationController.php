@@ -6,10 +6,9 @@ use Request;
 use App\Message;
 use App\Status;
 use App\Customer;
-use App\Question;
 use App\Questions_specification;
 
-class IntakeController extends Controller
+class Questions_specificationController extends Controller
 {
 
         /**
@@ -30,9 +29,6 @@ class IntakeController extends Controller
     public function index()
     {
         //
-        $questions = Question::where('specification', 'Intake')->get();
-        $specs = Questions_specification::all();
-        return view('back-end.intake.index', compact('questions', 'specs'));
     }
 
     /**
@@ -43,8 +39,6 @@ class IntakeController extends Controller
     public function create()
     {
         //
-        $specs = Questions_specification::all();
-        return view('back-end.intake.create', compact('specs'));
     }
 
     /**
@@ -56,6 +50,10 @@ class IntakeController extends Controller
     public function store()
     {
         //
+        $input = Request::all();
+        Questions_specification::create($input);
+        return redirect('/intake')->with('status', 'Categorie succesvol toegevoegd.');
+    
     }
 
     /**
@@ -99,8 +97,11 @@ class IntakeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($category)
     {
         //
+        $spec = Questions_specification::where('category', $category);
+        $spec->delete();
+        return redirect('/intake')->with('status', 'Categorie succesvol verwijderd.');
     }
 }

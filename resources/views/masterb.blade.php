@@ -112,7 +112,7 @@
                         </ul>
                         <ul id="dropdown-intake" class="dropdown-content">
                             <li><a href="/intake">Intake Vragen Overzicht</a></li>
-                            <li><a href="/intake/create">Vragen aanmaken</a></li>
+                            <li><a href="/intake/create">Vraag/categorie aanmaken</a></li>
                         </ul>
                         @endif
                         <ul id="dropdown-profile" class="dropdown-content">
