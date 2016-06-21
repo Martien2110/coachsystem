@@ -21,8 +21,10 @@
     </div>
 </div>
 <div class="row">
+	@foreach($specs as $spec)
 	<div class="col s12 m6">
-		<h5 class="main-text lighten-1">Groep: NAW - Gegevens</h5>
+		<a href="/intake/create">Voeg een vraag/categorie toe</a>
+		<h5 class="main-text lighten-1">Groep: {{$spec->category}}</h5>
 		<table class="datatable bordered">
 			<thead>
 				<tr>
@@ -33,16 +35,13 @@
 			</thead>
 			<tbody>
 				@foreach($questions as $question)
-				@if($question->category == 'NAW - Gegevens')
+				@if($question->category == $spec->category)
 				<tr>
 					<td>{{$question->question}}</td>
 					<td>{{$question->category}}</td>
 					<td class="center-align">
 						<div class="btn-group">
-							{!! Form::open(array('url' => 'intake/'.$question->id, 'method' => 'delete')) !!}
-							<a href="intake/{{$question->id}}/edit" class="btn-flat btn-small waves-effect">
-								<i class="material-icons">create</i>
-							</a>
+							{!! Form::open(array('url' => 'question/'.$question->id, 'method' => 'delete')) !!}
 							<button class="btn-flat btn-small waves-effect btnDelete">
 								<i class="material-icons">delete</i>
 							</button>
@@ -53,42 +52,16 @@
 				@endif
 				@endforeach
 			</tbody>
+			<tfoot>
+				{!! Form::open(array('url' => 'questions_specification/'.$spec->category, 'method' => 'delete')) !!} 
+					<button class="btn-flat btn-small waves-effect btnDelete">
+						<i class="material-icons">delete</i> Verwijder Categorie
+					</button>
+				{!! Form::close() !!}
+			</tfoot>
 		</table>
 	</div>
-	<div class="col s12 m6">
-		<h5 class="main-text lighten-1">Groep: Partner</h5>
-		<table class="datatable bordered">
-			<thead>
-				<tr>
-					<th>Vraag</th>
-					<th>Onderwerp</th>
-					<th class="center-align" data-searchable="false" data-orderable="false">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($questions as $question)
-				@if($question->category == 'Als u een Partner heeft')
-				<tr>
-					<td>{{$question->question}}</td>
-					<td>{{$question->category}}</td>
-					<td class="center-align">
-						<div class="btn-group">
-							{!! Form::open(array('url' => 'intake/'.$question->id, 'method' => 'delete')) !!}
-							<a href="intake/{{$question->id}}/edit" class="btn-flat btn-small waves-effect">
-								<i class="material-icons">create</i>
-							</a>
-							<button class="btn-flat btn-small waves-effect btnDelete">
-								<i class="material-icons">delete</i>
-							</button>
-							{!! Form::close() !!}
-						</div>
-					</td>
-				</tr>
-				@endif
-				@endforeach
-			</tbody>
-		</table>
-	</div>
+	@endforeach
 </div>
 
 

@@ -44,7 +44,7 @@
 				</div>
 				<div class="row no-gutter">
 					<div class="input-field col s12 m12">
-						<select>
+						<select name="category">
 							@foreach($specs as $spec)
 							<option value="{{$spec->category}}">{{$spec->category}}</option>
 							@endforeach
@@ -63,7 +63,28 @@
 		</div>
 	</div>
 	<div id="addcategory" class="col s12 m12">
-		Test 2
+		<div class="panel panel-bordered">
+			<div class="panel-header">
+					<div class="title">Voeg een nieuwe Catgorie toe</div>
+					<div class="subtitle">U kunt hier een nieuwe categorie toevoegen.</div>
+			</div>
+			<div class="panel-body">
+			{!! Form::open(array('url' => 'questions_specification')) !!} <!-- Create script to add category -->
+				<input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
+				<div class="row no-gutter">
+					<div class="input-field col s12 m12">
+						{!! Form::label('nm', 'Categorie:', array('for' => 'first_name')) !!}
+						{!! Form::text('category', null, array('id' => 'first_name', 'class' => 'validate', 'required')) !!}
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="right-align">
+						{!! Form::submit('Voeg toe', array('class' => 'btn-flat waves-effect')) !!}
+					</div>
+				</div>
+				{!! Form::close() !!}
+			</div>
+		</div>
 	</div>
 </div>
 
