@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('back-end.index');
+        if(Auth::user()->role<2){
+            return redirect('/dashboard/message');
+        }
+        else{
+            return redirect('/dashboard/message'); //needs to be changed
+        }
     }
 }

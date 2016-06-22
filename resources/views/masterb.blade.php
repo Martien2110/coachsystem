@@ -73,7 +73,8 @@
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-dashboard"  data-constrainwidth="false" data-beloworigin="true">Dashboard<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
-                        @if(Auth::user()->role < 2)
+                            <!-- Coach menu -->
+                            @if(Auth::user()->role < 2)
                             <li><a href="/message">Berichten</a></li>
                             <li><a href="/user">Gebruikers</a></li>
                             <li>
@@ -86,6 +87,12 @@
                                     Intake<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
+                            @endif
+                            <!-- Cliënt menu -->
+                            @if(Auth::user()->role == 2)
+                            <li><a href="/intake">Intake</a></li>
+
+
                             @endif
                             <li class="profile ">
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">
@@ -115,6 +122,7 @@
                             <li><a href="/intake/create">Vraag/categorie aanmaken</a></li>
                         </ul>
                         @endif
+
                         <ul id="dropdown-profile" class="dropdown-content">
                             <li><a href="/logout">Logout</a></li>
                         </ul>
@@ -181,6 +189,11 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
+                        @if(Auth::user()->role == 2)
+                            <li><a href="/intake">Intake</a></li>
+
+
                         @endif
                     </ul>
                 </div>

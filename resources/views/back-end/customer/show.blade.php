@@ -21,10 +21,20 @@
 		<div class="col s12 m4">
 			@if(is_object($user))
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/deleteuser"><i class="material-icons left">send</i>Verwijder Cliënt account</a>
+			@else
+			<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">send</i>Cliënt heeft geen Account</a>
 			@endif
 		</div>
 		<div class="col s12 m4">
+			@if(is_object($intake))
+				@if($intake->visible == 1)
+				<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al klaargezet</a>
+				@else
+				<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al behandeld.</a>
+				@endif
+			@else
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake"><i class="material-icons left">assignment</i>Zet Intake Formulier klaar voor Cliënt</a>
+			@endif
 		</div>
 		<div class="col s12 m4">
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process"><i class="material-icons left">assignment</i>Verwerk Intake Formulier van de Cliënt</a>

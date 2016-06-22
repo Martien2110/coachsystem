@@ -7,6 +7,9 @@ use App\Customer;
 use App\Status;
 use App\User;
 use Auth;
+use App\Intake_has_question;
+use App\Intake;
+use App\Question;
 
 
 class CustomerController extends Controller
@@ -75,11 +78,16 @@ class CustomerController extends Controller
         $customer = Customer::where('id', $id)->first();
         $status = Status::where('id', $customer->statuses_id)->first();
         $user = User::where('customer_id', $customer->id)->first();
+        $intake = Intake::where('customer_id', $id)->first();
+        if($intake==null)
+        {
+            $intake = '';    
+        }
         if($user == null)
         {
             $user = '';
         }
-        return view('back-end.customer.show', compact('customer', 'status', 'user'));
+        return view('back-end.customer.show', compact('customer', 'status', 'user', 'intake'));
 
     }
 
@@ -134,5 +142,31 @@ class CustomerController extends Controller
         $user = Auth::where('customer_id', $customer->id);
         $user->delete();
         return redirect('/customer/'.$customer->id)->with('status', 'Account van Cliënt verwijderd');
+    }
+
+    public function setIntake($id)
+    {
+        $intake = new Intake;
+        $intake->date = date('Y-m-d');
+        $intake->customer_id = $id;
+        $intake->duedate = date('Y-m-d', strtotime("+14 days"));
+        $intake->visible = 1;
+        $intake->save();
+
+        $customer = Customer::findOrFail($id);
+        $inta = Intake::where('customer_id', $id)->first();
+        $customer->intake_id = $inta->id;
+        $customer->save();
+
+        $questions = Question::where('specification', 'intake')->get();
+        foreach($questions as $question)
+        {
+            $intake_has_questions = new Intake_has_question;
+            $intake_has_questions->questions_id = $question->id;
+            $intake_has_questions->intakes_id = $inta->id;
+            $intake_has_questions->save();
+        }
+
+        return redirect('customer/'.$id)->with('status', 'Intake klaargezet voor de Cliënt.');
     }
 }

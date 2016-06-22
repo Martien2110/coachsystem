@@ -7,8 +7,14 @@
 
 
 @endsection
-
 @section('content')
+
+
+
+
+
+
+@if(Auth::user()->role < 2)
 <div class="row">
 	<div class="col s12 m4">
 		<div id="boxSalesPerDay" class="panel panel-stats main lighten-1 white-text z-depth-1">
@@ -65,7 +71,11 @@
 		</div>
 	</div>
 </div>
+@else
 
+<p> U heeft hier geen toegang toe </p>
+<p> hier komen de client dashboards, zoals melding dat intake klaar staat enzo..</p>
+@endif
 
 
 

@@ -42,6 +42,7 @@ Route::get('/dashboard/message','DashboardController@messages');
 // Route::get('/dash','');
 
 Route::get('/customer/{id}/deleteuser', 'CustomerController@deleteuser');
+Route::get('/customer/{id}/intake','CustomerController@setIntake');
 Route::resource('user', 'UserController');
 
 Route::resource('message', 'MessageController');

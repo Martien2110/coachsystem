@@ -8,6 +8,8 @@ use App\Status;
 use App\Customer;
 use App\Question;
 use App\Questions_specification;
+use Auth;
+use App\Intake;
 
 class IntakeController extends Controller
 {
@@ -30,9 +32,18 @@ class IntakeController extends Controller
     public function index()
     {
         //
-        $questions = Question::where('specification', 'Intake')->get();
-        $specs = Questions_specification::all();
-        return view('back-end.intake.index', compact('questions', 'specs'));
+        if(Auth::user()->role < 2)
+        {
+            $questions = Question::where('specification', 'Intake')->get();
+            $specs = Questions_specification::all();
+            return view('back-end.intake.index', compact('questions', 'specs'));
+        }
+        else
+        {
+            $intake = Intake::where('customer_id', Auth::user()->customer_id)->first();
+            $questions = Question::where('specification', 'intake')->get();
+            return view('back-end.customer.intake', compact('intake', 'questions'));
+        }
     }
 
     /**
