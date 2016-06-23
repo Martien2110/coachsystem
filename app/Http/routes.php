@@ -39,10 +39,12 @@ Route::get('/veranderjeleven', function () {
 */
 
 Route::get('/dashboard/message','DashboardController@messages');
+Route::get('/dashboard', 'DashboardController@messages');
 // Route::get('/dash','');
 
 Route::get('/customer/{id}/deleteuser', 'CustomerController@deleteuser');
 Route::get('/customer/{id}/intake','CustomerController@setIntake');
+Route::get('/customer/{id}/intake/process', 'IntakeController@process')
 Route::resource('user', 'UserController');
 
 Route::resource('message', 'MessageController');

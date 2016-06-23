@@ -156,6 +156,7 @@ class CustomerController extends Controller
         $customer = Customer::findOrFail($id);
         $inta = Intake::where('customer_id', $id)->first();
         $customer->intake_id = $inta->id;
+        $customer->statuses_id = 12;
         $customer->save();
 
         $questions = Question::where('specification', 'intake')->get();

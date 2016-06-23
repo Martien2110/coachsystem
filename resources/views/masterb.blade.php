@@ -39,6 +39,7 @@
         <!-- ################ -->
         <!-- Page javascripts -->
         <!-- ################ -->
+        <script src="{{ asset('back-end/bower_components/jquery/dist/jquery.js') }}" type="text/javascript"></script>
         <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/amcharts.js') }}" type="text/javascript"></script>
         <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/serial.js') }}" type="text/javascript"></script>
         <script src="{{ asset('back-end/bower_components/amcharts3/amcharts/gauge.js') }}" type="text/javascript"></script>
@@ -69,12 +70,12 @@
 
                         <!-- Desktop -->
                         <ul class="right hide-on-med-and-down">
+                            <!-- Coach menu -->
+                            @if(Auth::user()->role < 2)
                             <li>
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-dashboard"  data-constrainwidth="false" data-beloworigin="true">Dashboard<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
-                            <!-- Coach menu -->
-                            @if(Auth::user()->role < 2)
                             <li><a href="/message">Berichten</a></li>
                             <li><a href="/user">Gebruikers</a></li>
                             <li>
@@ -91,8 +92,7 @@
                             <!-- Cliënt menu -->
                             @if(Auth::user()->role == 2)
                             <li><a href="/intake">Intake</a></li>
-
-
+                            <li><a href="/dashboard">Dashboard</a></li>
                             @endif
                             <li class="profile ">
                                 <a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">
@@ -218,7 +218,6 @@
         <!-- ################## -->
         <!-- Global javascripts -->
         <!-- ################## -->
-        <script src="{{ asset('back-end/bower_components/jquery/dist/jquery.js') }}" type="text/javascript"></script>
         <script src="{{ asset('back-end/bower_components/Materialize/dist/js/materialize.js') }}" type="text/javascript"></script>
         <script src="{{ asset('back-end/bower_components/code-prettify/src/prettify.js') }}" type="text/javascript"></script>
         <script src="{{ asset('back-end/js/admin.js') }}" type="text/javascript"></script>

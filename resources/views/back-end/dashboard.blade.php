@@ -9,11 +9,6 @@
 @endsection
 @section('content')
 
-
-
-
-
-
 @if(Auth::user()->role < 2)
 <div class="row">
 	<div class="col s12 m4">
@@ -72,9 +67,11 @@
 	</div>
 </div>
 @else
+<p>
+Geachte {{$customer->name}} {{$customer->lm_prefix}} {{ $customer->lastname }}, uw intake staat klaar.	
+</p>		
+<a class="waves-effect waves-light btn" href="/intake"><i class="material-icons left">send</i>Ga naar uw intake</a>
 
-<p> U heeft hier geen toegang toe </p>
-<p> hier komen de client dashboards, zoals melding dat intake klaar staat enzo..</p>
 @endif
 
 
