@@ -10,6 +10,7 @@ use Auth;
 use App\Intake_has_question;
 use App\Intake;
 use App\Question;
+use App\Comment;
 
 
 class CustomerController extends Controller
@@ -79,6 +80,11 @@ class CustomerController extends Controller
         $status = Status::where('id', $customer->statuses_id)->first();
         $user = User::where('customer_id', $customer->id)->first();
         $intake = Intake::where('customer_id', $id)->first();
+        $comment = Comment::where('intakes_id', $intake->id)->first();
+        if($comment == null)
+        {
+            $comment = '';
+        }
         if($intake==null)
         {
             $intake = '';    
@@ -87,7 +93,7 @@ class CustomerController extends Controller
         {
             $user = '';
         }
-        return view('back-end.customer.show', compact('customer', 'status', 'user', 'intake'));
+        return view('back-end.customer.show', compact('customer', 'status', 'user', 'intake', 'comment'));
 
     }
 

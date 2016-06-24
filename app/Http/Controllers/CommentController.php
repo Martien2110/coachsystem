@@ -45,7 +45,6 @@ class CommentController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -57,6 +56,18 @@ class CommentController extends Controller
     public function store()
     {
         //
+        $input = Request::all();
+        Comment::create($input);
+
+        $customer = Customer::findOrFail($input['customers_id']);
+        $customer->statuses_id = 13;
+        $customer->save();
+
+        $intake= Intake::findOrFail($input['intakes_id']);
+        $intake->visible = 3;
+        $intake->save();
+
+        return redirect('/customer/'.$input['customers_id'])->with('status', 'Intake succesvol verwerkt.');
 
     }
 
@@ -80,7 +91,19 @@ class CommentController extends Controller
     public function edit($id)
     {
         //
+        $customer = Customer::findOrFail($id);
+        $intake = Intake::where('customer_id', $customer->id)->first();
+        if($intake->visible < 2)
+        {
+            return redirect('/customer/'.$id)->with('status', 'Klant heeft intake nog niet gehad, er gaat iets fout. Neem contact op met de systeembeheerder.');
+        }
 
+        $questions = Question::where('specification', 'intake')->get();
+        $answers = Intake_has_question::where('intakes_id', $intake->id)->get();
+
+        $comment = Comment::where('customers_id', $customer->id)->where('intakes_id', $intake->id)->first();
+
+        return view('back-end.intake.edit', compact('customer', 'intake', 'questions', 'answers', 'comment'));
     }
 
     /**
@@ -93,6 +116,10 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $input = Request::all();
+        $comment = Comment::where('intakes_id', $input['intakes_id'])->where('customers_id', $input['customers_id'])->first();
+        $comment->fill($input)->save();
+        return redirect('/customer/'.$input['customers_id'])->with('status', 'Aantekening succesvol aangepast.'); 
     }
 
     /**

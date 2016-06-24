@@ -45,6 +45,7 @@ Route::get('/dashboard', 'DashboardController@messages');
 Route::get('/customer/{id}/deleteuser', 'CustomerController@deleteuser');
 Route::get('/customer/{id}/intake','CustomerController@setIntake');
 Route::get('/customer/{id}/intake/process', 'IntakeController@process');
+Route::get('/customer/{id}/intake/process/edit', 'CommentController@edit');
 Route::resource('user', 'UserController');
 
 Route::resource('message', 'MessageController');
@@ -52,6 +53,7 @@ Route::resource('customer', 'CustomerController');
 Route::resource('question', 'QuestionController');
 Route::resource('intake', 'IntakeController');
 Route::resource('questions_specification', 'Questions_specificationController');
+Route::resource('comment', 'CommentController');
 
 Route::get('/login', function(){
 	return view('back-end.login');

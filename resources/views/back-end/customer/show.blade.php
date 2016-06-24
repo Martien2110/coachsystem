@@ -26,14 +26,20 @@
 				@if($intake->visible == 1)
 				<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al klaargezet</a>
 				@else
-				<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al behandeld.</a>
+				<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al uitgezet.</a>
 				@endif
 			@else
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake"><i class="material-icons left">assignment</i>Zet Intake Formulier klaar voor Cliënt</a>
 			@endif
 		</div>
 		<div class="col s12 m4">
-			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process"><i class="material-icons left">assignment</i>Verwerk Intake Formulier van de Cliënt</a>
+			@if(is_object($intake))
+				@if($intake->visible == 3)
+					<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al verwerkt.</a>
+				@else
+					<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process"><i class="material-icons left">assignment</i>Verwerk Intake Formulier van de Cliënt</a>
+				@endif
+			@endif
 		</div>
 	</div>
 </div>
@@ -102,9 +108,28 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
+<div class="row">
+	<div class="col s12 m4">
+		<div class="panel panel-bordered">
+			<div class="panel-header">
+				<div class="title">Intake Aantekeningen</div>
+				<div class="subtitle">Hieronder de gemaakte aantekeningen van de Intake.</div>
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+						@if(is_object($comment))
+						<td>{{$comment->date}}</td>
+						<td>{{$comment->description}}</td>
+						@else
+						<td></td>
+						<td> Er is nog geen intake afgenomen</td>
+						@endif
+					</tr>
+				</table>
+				<div class="right-align"><a class="btn-flat btn-small waves-effect" href="/customer/{{$customer->id}}/intake/process/edit"><i class="material-icons right">assignment</i>Bekijk intake.</a></div>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection

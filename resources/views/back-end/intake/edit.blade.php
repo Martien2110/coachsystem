@@ -46,12 +46,12 @@
 				<div class="subtitle">Vul hieronder de aantekeningen voor uw Cliënt in</div>
 			</div>
 			<div class="panel-body">
-					{!! Form::open(array('url' => 'comment')) !!}
+					{!! Form::open(array('url' => 'comment/'.$comment->id, 'method' => 'put')) !!}
 					<input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
 					<div class="row no-gutter">
 						<div class="input-field col s12 m12">
 							<label for="comment">Aantekening:</label>
-							{!! Form::textarea('description', null, array('class' => 'materialize-textarea', 'placeholder' => 'Vul hier uw aantekeningen in.')) !!}
+							{!! Form::textarea('description', $comment->description, array('class' => 'materialize-textarea', 'placeholder' => 'Vul hier uw aantekeningen in.')) !!}
 						</div>
 						<input type="hidden" name="intakes_id" value="{{ $intake->id }}"/>
 						<input type="hidden" name="customers_id" value="{{$customer->id}}"/>
@@ -65,7 +65,7 @@
 							</button>
 						</div>
 					</div>
-				{{Form::close() }}
+				{!! Form::close() !!}
 			</div>
 		</div>
 	</div>
