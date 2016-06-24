@@ -44,7 +44,7 @@ Route::get('/dashboard', 'DashboardController@messages');
 
 Route::get('/customer/{id}/deleteuser', 'CustomerController@deleteuser');
 Route::get('/customer/{id}/intake','CustomerController@setIntake');
-Route::get('/customer/{id}/intake/process', 'IntakeController@process')
+Route::get('/customer/{id}/intake/process', 'IntakeController@process');
 Route::resource('user', 'UserController');
 
 Route::resource('message', 'MessageController');

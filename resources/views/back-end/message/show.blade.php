@@ -4,11 +4,6 @@
 
 @section('content')
 
-@if (session('status'))
-<div class="card-panel green accent-4">
-    {{ session('status') }}<!--<strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.-->
-</div>
-@endif
 
 <div class="row">
     <div class="col s12">

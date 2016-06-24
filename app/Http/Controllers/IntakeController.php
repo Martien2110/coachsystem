@@ -143,13 +143,13 @@ class IntakeController extends Controller
     public function process($id)
     {
         $customer = Customer::findOrFail($id);
-        $intake = Intake::findOrFail($customer->intakes_id);
+        $intake = Intake::where('customer_id', $customer->id)->first();
         if($intake->visible != 2)
         {
             return redirect('/customer/'.$id)->with('status', 'Klant heeft intake nog niet gehad, er gaat iets fout. Neem contact op met de systeembeheerder.');
         }
 
-        $questions = Questions::where('specification', 'intake')->get();
+        $questions = Question::where('specification', 'intake')->get();
         $answers = Intake_has_question::where('intakes_id', $intake->id)->get();
 
         return view('back-end.intake.process', compact('customer', 'intake', 'questions', 'answers'));

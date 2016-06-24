@@ -16,7 +16,7 @@
 	<div class="row"> 
 		<div class="col s12 m4">
 			<h5 class="main-text lighten-1">Nieuwe Berichten</h5>
-			<table class="highlight">
+			<table class="datatable highlight">
 				<thead>
 					<tr>
 						<th data-field="id">Naam</th>
@@ -39,7 +39,7 @@
 		</div>
 		<div class="col s12 m4">
 			<h5 class="main-text lighten-1">Berichten In de wacht</h5>
-			<table class="highlight">
+			<table class="datatable highlight">
 				<thead>
 					<tr>
 						<th data-field="id">Naam</th>
@@ -62,7 +62,7 @@
 		</div>
 		<div class="col s12 m4">
 			<h5 class="main-text lighten-1">Berichten in Behandeling</h5>
-			<table class="highlight">
+			<table class="datatable highlight">
 				<thead>
 					<tr>
 						<th data-field="id">Naam</th>
