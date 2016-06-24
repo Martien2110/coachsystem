@@ -7,6 +7,7 @@
         <title>@yield('title')</title>
         <meta name="author" content="">
         
+        
         <!-- ##### -->
         <!-- Fonts -->
         <!-- ##### -->
