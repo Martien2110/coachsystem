@@ -35,7 +35,7 @@ class TreatmentController extends Controller
     {
         //
         $treatments = Treatment::where('active', 1)->get();
-        
+
         return view('back-end.treatment.index', compact('treatments'));
     }
 
@@ -60,6 +60,7 @@ class TreatmentController extends Controller
     {
         $input = Request::all();
         Treatment::create($input);
+
 
         return redirect('/treatment')->with('status', 'Sessie type aangemaakt.');
     }
