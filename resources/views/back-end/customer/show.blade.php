@@ -25,8 +25,10 @@
 			@if(is_object($intake))
 				@if($intake->visible == 1)
 				<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al klaargezet</a>
-				@else
+				@elseif($intake->visible == 2)
 				<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al uitgezet.</a>
+				@elseif($intake->visible == 3)
+					<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al verwerkt.</a>
 				@endif
 			@else
 			<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake"><i class="material-icons left">assignment</i>Zet Intake Formulier klaar voor Cliënt</a>
@@ -35,7 +37,7 @@
 		<div class="col s12 m4">
 			@if(is_object($intake))
 				@if($intake->visible == 3)
-					<a class="waves-effect waves-light btn" href="#"><i class="material-icons left">assignment</i>Intake formulier al verwerkt.</a>
+				<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process/edit"><i class="material-icons left">assignment</i>Bekijk verwerkte intake.</a>
 				@else
 					<a class="waves-effect waves-light btn" href="/customer/{{$customer->id}}/intake/process"><i class="material-icons left">assignment</i>Verwerk Intake Formulier van de Cliënt</a>
 				@endif

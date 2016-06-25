@@ -6,7 +6,7 @@
 
         <title>@yield('title')</title>
         <meta name="author" content="">
-        
+
         
         <!-- ##### -->
         <!-- Fonts -->
@@ -89,6 +89,11 @@
                                     Intake<i class="material-icons dropdown-icon right">arrow_drop_down</i>
                                 </a>
                             </li>
+                            <li>
+                                <a href="#!" class="dropdown-button" data-activates="dropdown-treatment" data-constrainwidth="false" data-beloworigin="true">
+                                    Sessie<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                </a>
+                            </li>
                             @endif
                             <!-- Cliënt menu -->
                             @if(Auth::user()->role == 2)
@@ -121,6 +126,10 @@
                         <ul id="dropdown-intake" class="dropdown-content">
                             <li><a href="/intake">Intake Vragen Overzicht</a></li>
                             <li><a href="/intake/create">Vraag/categorie aanmaken</a></li>
+                        </ul>
+                        <ul id="dropdown-treatment" class="dropdown-content">
+                            <li><a href="">Overzicht Beschikbare Sessies</a></li>
+                            <li><a href="">Type Sessie Toevoegen</a></li>
                         </ul>
                         @endif
 

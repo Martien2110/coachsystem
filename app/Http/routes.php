@@ -47,6 +47,7 @@ Route::get('/customer/{id}/intake','CustomerController@setIntake');
 Route::get('/customer/{id}/intake/process', 'IntakeController@process');
 Route::get('/customer/{id}/intake/process/edit', 'CommentController@edit');
 Route::resource('user', 'UserController');
+Route::resource('treatment', 'TreatmentController');
 
 Route::resource('message', 'MessageController');
 Route::resource('customer', 'CustomerController');
